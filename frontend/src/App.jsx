@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from "./context/AuthProvider";
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 function AppRoutes() {
   const { authToken } = useAuth();
@@ -16,12 +17,11 @@ function AppRoutes() {
         </>
       ) : (
         <>
-          {/* <Route path="/" element={<RootLayout />}>
-            <Route index element={<Page1 />} />
-            <Route path="page1" element={<Page1 />} />
-            <Route path="page2" element={<Page2 />} />
+          <Route path="/" element={<Dashboard />}>
+            <Route index element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Route>
-          <Route path="*" element={<Navigate to="/page1" replace />} /> */}
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </>
       )}
     </Routes>
