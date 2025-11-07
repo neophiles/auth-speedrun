@@ -1,6 +1,6 @@
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
-from app.auth_utils import decode_access_token
+from app.utils.auth import decode_access_token
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/token")
 
