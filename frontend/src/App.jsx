@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from "./context/AuthProvider";
 import Register from './pages/Register';
+import Login from './pages/Login';
 
 function AppRoutes() {
   const { authToken } = useAuth();
@@ -9,9 +10,9 @@ function AppRoutes() {
     <Routes>
       {!authToken ? (
         <>
-          {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="*" element={<Navigate to="/register" replace />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </>
       ) : (
         <>
