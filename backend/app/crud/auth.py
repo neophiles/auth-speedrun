@@ -1,6 +1,6 @@
 from sqlmodel import Session, select
 from app.models import User
-from app.utils.auth import hash_password, verify_password
+from app.utils.auth import hash_password, verify_password   
 
 def create_user(username: str, email: str, password: str, session: Session) -> User:
     user_exists = session.exec(
