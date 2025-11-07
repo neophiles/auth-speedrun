@@ -12,12 +12,14 @@ export function AuthProvider({ children }) {
 
   const handleLogin = (userData, token) => {
     localStorage.setItem("token", token);
+    localStorage.setItem("currentUser", JSON.stringify(userData));
     setAuthToken(token);
     setCurrentUser(userData);
   };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("currentUser");
     setAuthToken(null);
     setCurrentUser(null);
   };
@@ -26,7 +28,7 @@ export function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{ authToken, setAuthToken, currentUser, setCurrentUser, handleLogin, handleLogout }}
     >
-    {children}
+      {children}
     </AuthContext.Provider>
   );
 }
