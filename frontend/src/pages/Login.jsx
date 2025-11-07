@@ -52,11 +52,11 @@ function Login() {
 
     try {
       const res = await login(loginData);
+      
       const accessToken = res?.access_token;
       if (!accessToken) throw new Error("No access token returned");
-
+      
       const user = await getUser(accessToken);
-      console.log(user);
 
       setAlertInfo({ status: "success", message: "Login successful!" });
       setTimeout(() => handleLogin(user, accessToken), 2000);
@@ -64,7 +64,7 @@ function Login() {
       setAlertInfo({ status: "error", message: "Invalid credentials! Please try again." });
       console.error(err);
     }
-};
+  };
 
   return (
     <>
